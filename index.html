@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday, Printcessa 🐱</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1:#ffe3ee;--bg2:#ffc9de;--card:#fff7fa;--ink:#5a2a41;--soft:#a05a78;
+  --pink:#ff6fa5;--hot:#e83e83;--line:#ffb3d0;--paper:#fffafc;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg1:#2b1020;--bg2:#3d1730;--card:#3a1a2e;--ink:#ffe6f0;--soft:#f0a7c6;--pink:#ff7fb0;--hot:#ff5d9f;--line:#7a3358;--paper:#331628;}}
+:root[data-theme="dark"]{--bg1:#2b1020;--bg2:#3d1730;--card:#3a1a2e;--ink:#ffe6f0;--soft:#f0a7c6;--pink:#ff7fb0;--hot:#ff5d9f;--line:#7a3358;--paper:#331628;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:'Quicksand',system-ui,sans-serif;color:var(--ink);
+  background:radial-gradient(circle at 20% 10%,var(--bg2),transparent 55%),radial-gradient(circle at 90% 80%,var(--bg2),transparent 50%),var(--bg1);
+  background-attachment:fixed;overflow-x:hidden}
+.float{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.float span{position:absolute;bottom:-40px;opacity:.55;animation:rise linear infinite}
+@keyframes rise{to{transform:translateY(-115vh) rotate(25deg)}}
+canvas#c{position:fixed;inset:0;pointer-events:none;z-index:5;width:100%;height:100%}
+.hidden{display:none!important}
+/* LOGIN */
+#login{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 20px}
+.lcard{position:relative;width:100%;max-width:380px;background:var(--card);border:3px solid var(--line);border-radius:36px;
+  padding:78px 28px 30px;text-align:center;box-shadow:0 20px 50px -18px var(--hot)}
+.lcard .cat{position:absolute;left:50%;top:-58px;transform:translateX(-50%);width:130px}
+.lcard h1{font-family:'Pacifico',cursive;font-weight:400;font-size:2rem;margin:0 0 4px;color:var(--hot)}
+.lcard p{margin:0 0 22px;color:var(--soft)}
+label{display:block;text-align:left;font-weight:700;font-size:.9rem;margin:0 0 6px 6px;color:var(--soft)}
+input{width:100%;padding:14px 18px;border-radius:999px;border:2px solid var(--line);background:var(--paper);color:var(--ink);
+  font:inherit;font-size:1rem;margin-bottom:16px;outline:none}
+input:focus-visible{border-color:var(--hot);box-shadow:0 0 0 4px color-mix(in srgb,var(--pink) 30%,transparent)}
+button.go{width:100%;padding:14px;border:0;border-radius:999px;background:var(--hot);color:#fff;font:inherit;font-weight:700;
+  font-size:1.05rem;cursor:pointer;box-shadow:0 6px 0 color-mix(in srgb,var(--hot) 60%,#000)}
+button.go:active{transform:translateY(4px);box-shadow:0 2px 0 color-mix(in srgb,var(--hot) 60%,#000)}
+button.go:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+#err{min-height:1.4em;margin:12px 0 0;color:var(--hot);font-weight:700}
+.shake{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.tiny{margin-top:14px;font-size:.8rem;color:var(--soft)}
+/* LETTER */
+#page{position:relative;z-index:1}
+.hero{min-height:88vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px}
+.hero h1{font-family:'Pacifico',cursive;font-weight:400;font-size:clamp(2.4rem,10vw,4.6rem);line-height:1.15;margin:10px 0;color:var(--hot);text-shadow:3px 3px 0 var(--line)}
+.hero p{color:var(--soft);font-size:1.1rem;margin:0 0 22px}
+.cake{width:190px;cursor:pointer;border:0;background:none;padding:0}
+.cake:focus-visible{outline:3px solid var(--hot);border-radius:20px}
+.flame{transform-origin:50% 100%;animation:flick .5s ease-in-out infinite alternate}
+@keyframes flick{to{transform:scale(1.15,.9) rotate(3deg)}}
+.out .flame{display:none}
+.hint{font-family:'Caveat',cursive;font-size:1.5rem;color:var(--hot);margin-top:10px}
+.scroll{margin-top:22px;animation:bob 1.4s ease-in-out infinite;font-size:1.6rem}
+@keyframes bob{50%{transform:translateY(8px)}}
+.letter{max-width:640px;margin:0 auto;padding:0 18px 40px}
+.paper{position:relative;background:var(--paper);border:3px solid var(--line);border-radius:28px;padding:44px 26px 34px;
+  box-shadow:0 20px 50px -20px var(--hot);
+  background-image:repeating-linear-gradient(transparent 0 33px,color-mix(in srgb,var(--line) 45%,transparent) 33px 34px)}
+.paper::before,.paper::after{content:"";position:absolute;top:-22px;width:0;height:0;border-left:22px solid transparent;border-right:22px solid transparent;border-bottom:34px solid var(--line)}
+.paper::before{left:34px;transform:rotate(-8deg)}.paper::after{right:34px;transform:rotate(8deg)}
+.paper h2{font-family:'Pacifico',cursive;font-weight:400;color:var(--hot);font-size:1.8rem;margin:0 0 20px}
+.paper p{font-family:'Caveat',cursive;font-weight:500;font-size:1.5rem;line-height:34px;margin:0 0 34px;opacity:0;transform:translateY(14px);transition:opacity .8s,transform .8s}
+.paper p.show{opacity:1;transform:none}
+.paper p.big{font-weight:700;color:var(--hot);font-size:1.7rem}
+.paw{display:block;text-align:center;font-size:1.5rem;margin:-6px 0 28px;opacity:.7}
+.finale{text-align:center;padding:70px 20px 40px}
+.finale .star{font-size:4rem;display:inline-block;animation:tw 2s ease-in-out infinite;filter:drop-shadow(0 0 14px #ffd166)}
+@keyframes tw{50%{transform:scale(1.2) rotate(12deg);opacity:.75}}
+.finale h3{font-family:'Pacifico',cursive;font-weight:400;font-size:1.9rem;color:var(--hot);margin:10px 0 6px}
+.finale p{color:var(--soft);margin:0 0 18px}
+.again{background:none;border:2px solid var(--hot);color:var(--hot);padding:10px 22px;border-radius:999px;font:inherit;font-weight:700;cursor:pointer}
+footer{position:relative;z-index:1;text-align:center;padding:24px 20px 40px;color:var(--soft);font-size:.95rem}
+footer b{letter-spacing:.14em;color:var(--hot)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.paper p{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="float" id="float" aria-hidden="true"></div>
+<canvas id="c" aria-hidden="true"></canvas>
+
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="catface" viewBox="0 0 130 110">
+  <path d="M14 46 L20 6 L52 26Z" fill="#ffb3d0" stroke="#e83e83" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M116 46 L110 6 L78 26Z" fill="#ffb3d0" stroke="#e83e83" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M22 34 L24 18 L38 27Z M108 34 L106 18 L92 27Z" fill="#ff6fa5"/>
+  <ellipse cx="65" cy="65" rx="53" ry="40" fill="#fff" stroke="#e83e83" stroke-width="4"/>
+  <ellipse cx="46" cy="60" rx="6" ry="8" fill="#5a2a41"/><ellipse cx="84" cy="60" rx="6" ry="8" fill="#5a2a41"/>
+  <circle cx="48" cy="57" r="2" fill="#fff"/><circle cx="86" cy="57" r="2" fill="#fff"/>
+  <ellipse cx="32" cy="76" rx="9" ry="6" fill="#ffb3d0" opacity=".8"/><ellipse cx="98" cy="76" rx="9" ry="6" fill="#ffb3d0" opacity=".8"/>
+  <path d="M60 72 L70 72 L65 79Z" fill="#e83e83"/>
+  <path d="M65 79 Q58 90 50 82 M65 79 Q72 90 80 82" fill="none" stroke="#5a2a41" stroke-width="3" stroke-linecap="round"/>
+  <path d="M10 66 L30 70 M10 78 L30 76 M120 66 L100 70 M120 78 L100 76" stroke="#e83e83" stroke-width="2.5" stroke-linecap="round"/>
+</symbol></defs></svg>
+
+<!-- LOGIN -->
+<main id="login">
+  <div class="lcard" id="lcard">
+    <svg class="cat" viewBox="0 0 130 110" role="img" aria-label="Cute cat"><use href="#catface"/></svg>
+    <h1>Meow, hello 🐾</h1>
+    <p>Don't get your hopes all high…</p>
+    <div>
+      <label for="u"></label>
+      <input id="u" autocomplete="username" autocapitalize="off" spellcheck="false" placeholder="Name?">
+      <label for="p"></label>
+      <input id="p" type="password" autocomplete="current-password" placeholder="You know the drill...">
+      <button class="go" id="btn" type="button">Open 💀</button>
+      <div id="err" role="alert"></div>
+    </div>
+    <div class="tiny">Vanish if you ain't her 💗</div>
+  </div>
+</main>
+
+<!-- LETTER -->
+<div id="page" class="hidden">
+  <section class="hero">
+    <button class="cake" id="cake" aria-label="Blow out the candles">
+      <svg viewBox="0 0 190 190" width="190" height="190">
+        <g class="flame"><path d="M95 22 Q108 42 95 54 Q82 42 95 22Z" fill="#ffb703"/><path d="M95 36 Q101 46 95 52 Q89 46 95 36Z" fill="#ff6fa5"/></g>
+        <rect x="90" y="50" width="10" height="34" rx="3" fill="#ff8fb8"/>
+        <path d="M32 92 Q95 74 158 92 V150 H32Z" fill="#fff" stroke="#e83e83" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M32 100 Q45 118 58 100 Q71 118 84 100 Q97 118 110 100 Q123 118 136 100 Q149 118 158 102" fill="#ff6fa5"/>
+        <rect x="20" y="150" width="150" height="26" rx="8" fill="#ffb3d0" stroke="#e83e83" stroke-width="4"/>
+        <path d="M62 128l6-8 6 8M116 128l6-8 6 8" stroke="#e83e83" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <circle cx="95" cy="128" r="3" fill="#e83e83"/>
+      </svg>
+    </button>
+    <div class="hint" id="hint">you think the candles will go off if you blow them? ✨</div>
+    <h1></h1>
+    <p>🐱 Oh! there's a letter too? 🐱</p>
+    <div class="scroll" aria-hidden="true">⌄</div>
+  </section>
+
+  <section class="letter">
+    <article class="paper">
+      <h2>Happy birthday coconut head!</h2>
+      <p>I should say this before i run out of what else to say..</p>
+      <p>This is the third clearing everything and i still cant find the right words or even the right way and place to start.<br>i guess i still kinda suck at doing this, but i can tell the improvement after quite some time learning to feel and do everything again thanks to you, its your day, so its fine and okay to tell you everything, just today, and yeah, you're allowed to feel all mighty and important, kinda the main reason doing this.</p>
+      <p>This might not be the best, might not even be good, i don't know...I'm sorry...i have been trying...might not be enough...</p>
+      <span class="paw">🐾</span>
+      <p>The years are getting heavier huh, and knowing all you told me, you're probably still trying to figure your life out, i must tell you this, even if no one is, I'm proud of who you have become, who you're gradually learning to become, just stay true to yourself, be yourself and i will always be right behind you, will always have your back.</p>
+      <p>its kinda...sad we cant hang out later, not that i hold it against you or anything, i think i understand and its fine.</p>
+      <p>Have you noticed that no piece in a puzzle is complete on its own and that you need two or more to make sense out of it, i guess you're, we are...like that, i still wish i can complete you one day, because you've already done that too early to me, like a wave cleaning the beach, just with one swoop everything looks better and clean, i wonder how it will be if you really "try", doing all of these effortlessly, i envy that...i guess people like you are born with a charm and a blessing all along...i have never and cant seem to stop admiring you.</p>
+      <p>Whenever something good or bad happens, i find myself finding my way back "home", not sure i should call it that...but that's exactly what it feels like...</p>
+      <span class="paw">🐾</span>
+      <p>A year since our first conversation eh?<br>A year can do a lot to us huh...in a year you've successfully became one of the most important people to me, not that i have that much going on in my little life, but that's exactly why its so cool...</p>
+      <p>i sincerely pray you find peace and happiness in your life, maybe a long life too, i wonder how you'll look in your 70's most likely still the beauty you are.<br>Achieve all your dreams, i believe in you and I'm always rooting for you, and i hate losing, so don't make me lose my bet. Stay strong as you've always been, stay kind too, but not too kind to others...i get jealous too you know...not that i have the right to...</p>
+      <p class="big">...and I LOVE YOU, very very much, and THANK YOU for: ever texting me back; for ever opening up to me, meeting me and talking to me, and jumping on calls with me, and i haven't yet forgotten about the walk, and i don't think i will any time soon, i love you once again, and thank you for ever being born, I'm so glad you were...</p>
+      <p class="big">Happy birthday, keep on twinkling, my little star...</p>
+    </article>
+  </section>
+
+  <section class="finale">
+    <div class="star">⭐</div>
+    <h3>Keep on twinkling</h3>
+    <p>🐱 💗 🎂 💗 🐱</p>
+    <button class="again" id="again">More flowers ? 🎉</button>
+  </section>
+</div>
+
+<footer>Tired · <b>THUGXIC AGAIN</b> 🐾</footer>
+
+<script>
+(function(){
+  // floating decor
+  var f=document.getElementById('float'),em=['🐾','💗','🐱','🎀','✨','🎈'];
+  for(var i=0;i<16;i++){var s=document.createElement('span');s.textContent=em[i%em.length];
+    s.style.left=Math.random()*100+'%';s.style.fontSize=(16+Math.random()*22)+'px';
+    s.style.animationDuration=(12+Math.random()*14)+'s';s.style.animationDelay=(-Math.random()*20)+'s';f.appendChild(s);}
+
+  // confetti
+  var cv=document.getElementById('c'),cx=cv.getContext('2d'),bits=[],run=false;
+  function size(){cv.width=innerWidth;cv.height=innerHeight}size();addEventListener('resize',size);
+  var cols=['#ff6fa5','#ffb3d0','#e83e83','#ffd166','#fff','#c77dff'];
+  function burst(n){for(var i=0;i<n;i++)bits.push({x:innerWidth/2+(Math.random()-.5)*120,y:innerHeight*.45,
+    vx:(Math.random()-.5)*14,vy:-Math.random()*15-4,r:Math.random()*6+3,c:cols[i%cols.length],a:Math.random()*6,life:0});
+    if(!run){run=true;tick()}}
+  function tick(){cx.clearRect(0,0,cv.width,cv.height);
+    bits=bits.filter(function(b){b.vy+=.35;b.x+=b.vx;b.y+=b.vy;b.vx*=.99;b.a+=.2;b.life++;
+      cx.save();cx.translate(b.x,b.y);cx.rotate(b.a);cx.fillStyle=b.c;cx.fillRect(-b.r,-b.r/2,b.r*2,b.r);cx.restore();
+      return b.y<innerHeight+20&&b.life<260});
+    if(bits.length)requestAnimationFrame(tick);else{run=false;cx.clearRect(0,0,cv.width,cv.height)}}
+
+  // login
+  var U='rabiatu',P='THUGXICMMXXVI';
+  var u=document.getElementById('u'),p=document.getElementById('p'),err=document.getElementById('err'),card=document.getElementById('lcard');
+  function attempt(){
+    if(u.value.trim().toLowerCase()===U&&p.value.trim().toUpperCase()===P){
+      document.getElementById('login').classList.add('hidden');
+      document.getElementById('page').classList.remove('hidden');
+      window.scrollTo(0,0);setTimeout(function(){burst(140)},250);reveal();
+    }else{
+      err.textContent='Meow? 🙀 That doesn\u2019t match. Not an imposter right?';
+      card.classList.remove('shake');void card.offsetWidth;card.classList.add('shake');
+    }}
+  document.getElementById('btn').addEventListener('click',attempt);
+  [u,p].forEach(function(el){el.addEventListener('keydown',function(e){if(e.key==='Enter')attempt()})});
+
+  // cake
+  var cake=document.getElementById('cake'),hint=document.getElementById('hint');
+  cake.addEventListener('click',function(){cake.classList.add('out');hint.textContent='your gift is on its way 💫';burst(120)});
+  document.getElementById('again').addEventListener('click',function(){burst(160)});
+
+  // reveal paragraphs
+  function reveal(){
+    var ps=document.querySelectorAll('.paper p');
+    if(!('IntersectionObserver' in window)){ps.forEach(function(x){x.classList.add('show')});return}
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}})},{threshold:.25});
+    ps.forEach(function(x){io.observe(x)});
+  }
+})();
+</script>
+</body>
+</html>
